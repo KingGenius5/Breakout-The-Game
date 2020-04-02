@@ -37,23 +37,23 @@ document.addEventListener('keyup', keyUpHandler, false);
 document.addEventListener('mousemove', mouseMoveHandler, false);
 
 function keyDownHandler(e) {
-  if (e.key == 'Right' || e.key == 'ArrowRight') {
+  if (e.key === 'Right' || e.key === 'ArrowRight') {
     rightPressed = true;
-  } else if (e.key == 'Left' || e.key == 'ArrowLeft') {
+  } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
     leftPressed = true;
   }
 }
 
 function keyUpHandler(e) {
-  if (e.key == 'Right' || e.key == 'ArrowRight') {
+  if (e.key === 'Right' || e.key === 'ArrowRight') {
     rightPressed = false;
-  } else if (e.key == 'Left' || e.key == 'ArrowLeft') {
+  } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
     leftPressed = false;
   }
 }
 
 function mouseMoveHandler(e) {
-  var relativeX = e.clientX - canvas.offsetLeft;
+  const relativeX = e.clientX - canvas.offsetLeft;
   if (relativeX > 0 && relativeX < canvas.width) {
     paddleX = relativeX - paddleWidth / 2;
   }
@@ -63,7 +63,7 @@ function collisionDetection() {
   for (var c = 0; c < brickColumnCount; c++) {
     for (var r = 0; r < brickRowCount; r++) {
       var b = bricks[c][r];
-      if (b.status == 1) {
+      if (b.status === 1) {
         if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
           dy = -dy;
           b.status = 0;
@@ -97,7 +97,7 @@ function drawPaddle() {
 function drawBricks() {
   for (var c = 0; c < brickColumnCount; c++) {
     for (var r = 0; r < brickRowCount; r++) {
-      if (bricks[c][r].status == 1) {
+      if (bricks[c][r].status === 1) {
         var brickX = (r * (brickWidth + brickPadding)) + brickOffsetLeft;
         var brickY = (c * (brickHeight + brickPadding)) + brickOffsetTop;
         bricks[c][r].x = brickX;
