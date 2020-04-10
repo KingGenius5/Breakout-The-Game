@@ -49,14 +49,14 @@ const certainFont = '16px Arial';
 // Variables
 // --------------------------------------------------------------
 
-// ** Initialize the position of the ball and paddle
-// ** and set the ball speed and direction
+// Initialize the position of the ball and paddle
+// and set the ball speed and direction
 // **** A Ball Object would be good.
 let x = cWidth / 2;
 let y = cHeight - 30;
-let paddleX = paddleXStart;
 let dx = 2;
 let dy = -2;
+let paddleX = paddleXStart;
 
 let score = 0;
 let lives = 3;
@@ -100,6 +100,13 @@ function drawPaddle() {
   ctx.fillStyle = objectColor;
   ctx.fill();
   ctx.closePath();
+}
+
+function initBallPos() {
+  x = cWidth / 2;
+  y = cHeight - 30;
+  dx = 2;
+  dy = -2;
 }
 
 function drawBricks() {
@@ -195,12 +202,9 @@ function draw() {
         document.location.reload();
       } else {
         // Start the over you hit the bottom
-        // ** Set the position of ball and paddle
-        // ** And set the speed and direction of the ball
-        x = cWidth / 2;
-        y = cHeight - 30;
-        dx = 2;
-        dy = -2;
+        // Set the position of ball and paddle
+        // And set the speed and direction of the ball
+        initBallPos();
         paddleX = paddleXStart;
       }
     }
