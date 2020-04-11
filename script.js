@@ -141,6 +141,7 @@ function collisionDetection() {
           if (score === brickRowCount * brickColumnCount) {
             // eslint-disable-next-line no-alert
             alert('YOU WIN, CONGRATULATIONS!'); // * Could be good as a constant
+            // Will have to change message above into a constant
             document.location.reload();
           }
         }
